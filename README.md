@@ -21,9 +21,9 @@ Here is what I hope to accomplish with this terminal application:
 ### To-do List
 
 - [x] create new tasks in a numbered list, with **task name**, **description**, **date/deadline** *(date and time)* and **urgency level** *(low, medium, high)*
-- [ ] check off completed tasks
+- [x] check off completed tasks
 - [x] edit existing tasks (task name, description, date/deadline)
-- [ ] delete tasks
+- [x] delete tasks
 - [ ] sort tasks by **date** *(ascending/descending)*, **task name** *(alphabetical)*
 - [ ] save current session's tasks to a local `.json` file that is updated whenever the terminal session is closed
 - [ ] boot up using previous saved tasks from the local `.json` file
