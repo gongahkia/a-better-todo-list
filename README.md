@@ -4,7 +4,7 @@
 
 This is my attempt to decompress from learning so many languages by distracting myself with a small project- a to-do list that runs on the **CLI (terminal)**.    
 
-> I have since given up on writing this monster in C, and will be defaulting to the ever reliable Python.
+> I have since given up on writing this monster in C, and will instead be doing the ultimate funny by writing this in ***Nim***
 
 ----------
 
@@ -20,10 +20,10 @@ Here is what I hope to accomplish with this terminal application:
 
 ### To-do List
 
-- [x] create new tasks in a numbered list, with **task name**, **description**, **date/deadline** *(date and time)* and **urgency level** *(low, medium, high)*
-- [x] check off completed tasks
-- [x] edit existing tasks (task name, description, date/deadline)
-- [x] delete tasks
+- [ ] create new tasks in a numbered list, with **task name**, **description**, **date/deadline** *(date and time)* and **urgency level** *(low, medium, high)*
+- [ ] check off completed tasks
+- [ ] edit existing tasks (task name, description, date/deadline)
+- [ ] delete tasks
 - [ ] sort tasks by **date** *(ascending/descending)*, **task name** *(alphabetical)*
 - [ ] save current session's tasks to a local `.json` file that is updated whenever the terminal session is closed
 - [ ] boot up using previous saved tasks from the local `.json` file
@@ -51,7 +51,9 @@ Here is what I hope to accomplish with this terminal application:
 
 ### Possible approaches
 
-* using object-oriented programming to give every task and project a set of attributes and methods which can then be easily referenced at a moment's notice
+> **Edit on 19.2.2023**: I have since learned that object-oriented might not be the best approach for completing this project.
+
+* Create a global *Task_holder* dictionary that will then store the *Tasks*, which are also dictionaries *(storing the name, description, deadline and urgency level of each task)*
 
 ----------
 
