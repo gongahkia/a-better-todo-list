@@ -4,7 +4,9 @@
 
 This is my attempt to decompress from learning so many languages by distracting myself with a small project- a to-do list that runs on the **CLI (terminal)**.    
 
-> I have since given up on writing this monster in C, and will instead be doing the ultimate funny by writing this in ***Nim***
+> **Edit on 19.2.2023**: I have since given up on writing this monster in C, and will instead be doing the ultimate funny by writing this in ***Nim***
+
+![](https://img.devrant.com/devrant/rant/r_714509_DhE7P.jpg)
 
 ----------
 
