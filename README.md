@@ -55,7 +55,7 @@ Here is what I hope to accomplish with this terminal application:
 
 > **Edit on 19.2.2023**: I have since learned that object-oriented might not be the best approach for completing this project.
 
-* Create a global *Task_holder* dictionary that will then store the *Tasks*, which are also dictionaries *(storing the name, description, deadline and urgency level of each task)*
+* Create a global *Task_holder* dictionary that will then store the *Tasks*, which are also dictionaries ***(storing the name, description, deadline and urgency level of each task)***
 
 ----------
 
