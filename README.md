@@ -4,7 +4,7 @@
 
 This is my attempt to decompress from learning so many languages by distracting myself with a small project- a to-do list that runs on the **CLI (terminal)**.    
 
-> The catch of course, is that I will be writing said application, in C *(hopefully)*.
+> I have since given up on writing this monster in C, and will be defaulting to the ever reliable Python.
 
 ----------
 
