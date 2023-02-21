@@ -22,7 +22,7 @@ Here is what I hope to accomplish with this terminal application:
 
 ### To-do List
 
-- [ ] create new tasks in a numbered list, with **task name**, **description**, **date/deadline** *(date and time)* and **urgency level** *(low, medium, high)*
+- [x] create new tasks in a numbered list, with **task name**, **description**, **date/deadline** *(date and time)* and **urgency level** *(low, medium, high)*
 - [ ] check off completed tasks
 - [ ] edit existing tasks (task name, description, date/deadline)
 - [ ] delete tasks
