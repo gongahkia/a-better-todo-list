@@ -17,7 +17,7 @@ Here is what I hope to accomplish with this terminal application:
 - [ ] stylized *home page* 
 - [ ] stylized *notifications bar* to print out any new notifications
 - [ ] clear, easy to navigate commands and GUI (multiple pages to navigate between, each with their own defined purpose)
-- [ ] terminal that ***clears the screen*** whenever a command is inputted, to give the impression of constant refresh on the application
+- [ ] terminal that ***clears the screen*** whenever a command is inputted, to give the impression of constant refresh on the application *(import os, os.system('cls'))*
 
 
 ### To-do List
