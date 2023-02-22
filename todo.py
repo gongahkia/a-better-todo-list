@@ -1,3 +1,5 @@
+import pickle
+
 # WORKING
 def add_task(task_name="", task_description="", task_deadline="", task_urgency="low", Task_holder=[]):
     task_format = []
@@ -73,3 +75,14 @@ def see_tasks(Task_holder):
         final_print += line_print + "\n"
         counter += 1
     return final_print
+
+# WORKING
+def write_tasks(Task_holder):
+    fhand = open("tasks", "wb")
+    pickle.dump(Task_holder, fhand)
+
+# WORKING
+def read_tasks():
+    fhand = open("tasks", "rb")
+    Task_holder = pickle.load(fhand)
+    return Task_holder

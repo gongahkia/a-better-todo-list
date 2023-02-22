@@ -17,12 +17,11 @@ while True:
     if len(task_name) > 25:
         print("Please shorten task name.")
         task_name = task_name[:22] + "..."
-    # (1) possible tweaks: save full task name input in list and only SHOW truncated "..." name for the visualisation
+
     task_description = input("Task description: ")
     if len(task_description) > 25:
         print("Please shorten task description. ")
         task_description = task_description[:22] + "..."
-    # (2) possible tweaks: save full task description input in list and only SHOW truncated "..." description for the visualisation
 
     task_deadline = input("Task deadline [DD.MM.YY]: ")
     date_components = task_deadline.split(".")
@@ -137,3 +136,5 @@ while True:
     # (15) once the main menu is up, allow for selection of existing task urgency to be done via shifting arrow, and only typing done should be for new task urgency
 
     #####################
+
+# (16) integrate the write and read tasks function to this main.py file

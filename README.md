@@ -27,8 +27,8 @@ Here is what I hope to accomplish with this terminal application:
 - [x] edit existing tasks (task name, description, date/deadline)
 - [x] delete tasks
 - [ ] sort tasks by **date** *(ascending/descending)*, **task name** *(alphabetical)*
-- [ ] save current session's tasks to a local `.json` file that is updated whenever the terminal session is closed
-- [ ] boot up using previous saved tasks from the local `.json` file
+- [x] save current session's tasks to a local `pickle` file that is updated whenever the terminal session is closed
+- [x] boot up using previous saved tasks from the local `pickle` file
 
 
 ### Deadline tracker 
