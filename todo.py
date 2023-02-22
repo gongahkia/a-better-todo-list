@@ -54,7 +54,7 @@ def see_tasks(Task_holder):
             num_spaces1, space1, space2,= 0, "", ""
             if len(component) % 2 == 0:
                 #even
-                num_spaces1 = int((30- len(component))/2)
+                num_spaces1 = int((30 - len(component))/2)
                 for itervar in range(num_spaces1):
                     space1 += " "
                 space2 = space1
