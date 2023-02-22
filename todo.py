@@ -5,6 +5,7 @@ def add_task(task_name="", task_description="", task_deadline="", task_urgency="
     Task_holder.append(task_format)
     return Task_holder
 
+# WORKING
 def complete_task(task_name, Task_holder):
     for itervar in range(len(Task_holder)):
         if Task_holder[itervar][0] == task_name:
@@ -12,6 +13,7 @@ def complete_task(task_name, Task_holder):
             return Task_holder
     return f"{task_name} cannot be found. Please choose an existing task."
 
+# WORKING
 def edit_task_name(task_name, new_task_name, Task_holder):
     for itervar in range(len(Task_holder)):
         if Task_holder[itervar][0] == task_name:
@@ -19,6 +21,7 @@ def edit_task_name(task_name, new_task_name, Task_holder):
             return Task_holder
     return f"{task_name} cannot be found. Please choose an existing task."
 
+# WORKING
 def edit_task_description(task_description, new_task_description, Task_holder):
     for itervar in range(len(Task_holder)):
         if Task_holder[itervar][1] == task_description:
@@ -26,13 +29,15 @@ def edit_task_description(task_description, new_task_description, Task_holder):
             return Task_holder
     return "Task cannot be found. Please choose an existing task."
 
+# WORKING
 def edit_task_deadline(task_deadline, new_task_deadline, Task_holder):
     for itervar in range(len(Task_holder)):
         if Task_holder[itervar][2] == task_deadline:
             Task_holder[itervar][2] = new_task_deadline
             return Task_holder
     return "Task cannot be found. Please choose an existing task."
-    
+
+# WORKING    
 def edit_task_urgency(task_urgency, new_task_urgency, Task_holder):
     for itervar in range(len(Task_holder)):
         if Task_holder[itervar][3] == task_urgency:
