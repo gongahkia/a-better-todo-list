@@ -244,8 +244,3 @@ if save_input.lower() == "s":
     write_tasks(Task_holder)
     os.system("clear")
     print("System Notif: Tasks saved")
-
-
-
-
-
