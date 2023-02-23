@@ -108,8 +108,6 @@ while True:
         print("Please shorten task name.")
         new_task_name = new_task_name[:22] + "..."
 
-    # (8) possible tweaks: save full task name input in list and only SHOW truncated "..." name for the visualisation
-
     edit_task_name(old_task_name, new_task_name, Task_holder)
 
     # (9) once the main menu is up, allow for selection of existing task name to be done via shifting arrow, and only typing done should be for new task name
@@ -122,8 +120,6 @@ while True:
     if len(new_task_description) > 25:
         print("Please shorten task description. ")
         new_task_description = new_task_description[:22] + "..."
-
-    # (10) possible tweaks: save full task description input in list and only SHOW truncated "..." description for the visualisation
 
     edit_task_description(old_task_description, new_task_description, Task_holder)
 
