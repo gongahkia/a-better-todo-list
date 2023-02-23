@@ -6,6 +6,8 @@ temp_date = (current_date.strftime("%d.%m.%y")).split(".")
 temp_date[1] = abs(int(temp_date[1]))
 formatted_current_date = f"{temp_date[0]}.{temp_date[1]}.{temp_date[2]}"
 
+    #####################
+
 try:
 
     # RELOAD PAST SAVE
@@ -82,10 +84,6 @@ while True:
     #COMPLETE_TASKS
 
     completed_task = input("Enter name of completed task: ")
-
-    # (5) when working on UI with main page and shifting arrow, change this input to allow for auto-checking of which task is being pointed at.
-    # (6) ensure point 5 is up and running so that multiple tasks with same task name can be created without conflict
-    
     complete_task(completed_task, Task_holder)
 
     #####################
@@ -93,8 +91,6 @@ while True:
     #DELETE_TASKS
 
     deleted_task = input("Enter name of task to be deleted: ")
-
-    # (7) follow up on points 5 and 6 for this operation as well
 
     complete_task(deleted_task, Task_holder)
 
@@ -109,8 +105,6 @@ while True:
 
     edit_task_name(old_task_name, new_task_name, Task_holder)
 
-    # (9) once the main menu is up, allow for selection of existing task name to be done via shifting arrow, and only typing done should be for new task name
-
     #####################
 
     #EDIT_TASK_DESCRIPTION
@@ -121,8 +115,6 @@ while True:
         new_task_description = new_task_description[:22] + "..."
 
     edit_task_description(old_task_description, new_task_description, Task_holder)
-
-    # (11) once the main menu is up, allow for selection of existing task description to be done via shifting arrow, and only typing done should be for new task description
 
     #####################
 
@@ -142,8 +134,6 @@ while True:
         new_task_deadline = formatted_current_date
     edit_task_deadline(old_task_deadline, new_task_deadline, Task_holder)
 
-    # (14) once the main menu is up, allow for selection of existing task deadline to be done via shifting arrow, and only typing done should be for new task deadline
-
     #####################
 
     #EDIT_TASK_URGENCY
@@ -158,7 +148,5 @@ while True:
     else:
         new_task_urgency = "Low"
     edit_task_urgency(old_task_urgency, new_task_urgency, Task_holder)
-
-    # (15) once the main menu is up, allow for selection of existing task urgency to be done via shifting arrow, and only typing done should be for new task urgency
 
     #####################
