@@ -26,7 +26,6 @@ Here is what I hope to accomplish with this terminal application:
 - [x] check off completed tasks
 - [x] edit existing tasks (task name, description, date/deadline)
 - [x] delete tasks
-- [ ] sort tasks by **date** *(ascending/descending)*, **task name** *(alphabetical)*
 - [x] save current session's tasks to a local `pickle` file that is updated whenever the terminal session is closed
 - [x] boot up using previous saved tasks from the local `pickle` file
 
@@ -56,6 +55,13 @@ Here is what I hope to accomplish with this terminal application:
 > **Edit on 19.2.2023**: I have since learned that object-oriented might not be the best approach for completing this project.
 
 * Create a global *Task_holder* dictionary that will then store the *Tasks*, which are also dictionaries ***(storing the name, description, deadline and urgency level of each task)***
+
+----------
+
+### To be implemented in the future
+
+- sort tasks by **date** *(ascending/descending)*, **task name** *(alphabetical)*
+> This would probably be easier achieved if I used a dictionary instead of a list to store all my tasks.
 
 ----------
 
