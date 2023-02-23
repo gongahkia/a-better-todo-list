@@ -1,5 +1,7 @@
 from todo import *
 from datetime import date 
+import os
+import time
 
 current_date = date.today()
 temp_date = (current_date.strftime("%d.%m.%y")).split(".")
@@ -22,15 +24,17 @@ except:
 while True:
 
     #EXIT CALL
-
+    os.system("clear")
     task_exit = input("[(E)xit?]: ")
     if task_exit.lower() == "e" or task_exit.lower() == "exit": 
 
         # SAVE TASKS TO LOCAL FILE
 
+        os.system("clear")
         save_input = input("[S]ave?: ")
         if save_input.lower() == "s":
             write_tasks(Task_holder)
+            os.system("clear")
             print("Tasks saved")
             break
 
@@ -38,16 +42,21 @@ while True:
 
     #ADD_TASK
 
+    os.system("clear")
     task_name = input("Task name: ")
     if len(task_name) > 25:
         print("Please shorten task name.")
         task_name = task_name[:22] + "..."
+        time.sleep(5)
 
+    os.system("clear")
     task_description = input("Task description: ")
     if len(task_description) > 25:
         print("Please shorten task description. ")
         task_description = task_description[:22] + "..."
+        time.sleep(5)
 
+    os.system("clear")
     task_deadline = input("Task deadline [DD.MM.YY]: ")
     date_components = task_deadline.split(".")
     if len(date_components) == 3:
@@ -57,10 +66,13 @@ while True:
         else:
             print("Invalid date entered. Please enter a deadline in the future.")
             task_deadline = formatted_current_date
+            time.sleep(5)
     else:
         print("Please enter a deadline according to the specified date format [DD.MM.YY].")
         task_deadline = formatted_current_date
+        time.sleep(5)
             
+    os.system("clear")
     task_urgency = input("Task urgency [(L)ow / (M)edium / (H)igh]: ")
     if task_urgency.lower() == "l":
         task_urgency = "Low"
@@ -76,7 +88,8 @@ while True:
     #####################
 
     #SEE_TASKS
-
+    
+    os.system("clear")
     print(see_tasks(Task_holder))
 
     #####################
@@ -90,35 +103,40 @@ while True:
 
     #DELETE_TASKS
 
+    os.system("clear")
     deleted_task = input("Enter name of task to be deleted: ")
-
     complete_task(deleted_task, Task_holder)
 
     #####################
 
     #EDIT_TASK_NAME
+    os.system("clear")
     old_task_name = input("Enter old task name: ")
     new_task_name = input("Enter new task name: ")
     if len(new_task_name) > 25:
         print("Please shorten task name.")
         new_task_name = new_task_name[:22] + "..."
+        time.sleep(5)
 
     edit_task_name(old_task_name, new_task_name, Task_holder)
 
     #####################
 
     #EDIT_TASK_DESCRIPTION
+    os.system("clear")
     old_task_description = input("Enter old task description: ")
     new_task_description = input("Enter new task description: ")
     if len(new_task_description) > 25:
         print("Please shorten task description. ")
         new_task_description = new_task_description[:22] + "..."
+        time.sleep(5)
 
     edit_task_description(old_task_description, new_task_description, Task_holder)
 
     #####################
 
     #EDIT_TASK_DEADLINE
+    os.system("clear")
     old_task_deadline = input("Enter old task deadline [DD.MM.YY]: ")    
     new_task_deadline = input("Enter new task deadline [DD.MM.YY]: ")
     new_date_components = new_task_deadline.split(".")
@@ -129,14 +147,17 @@ while True:
         else:
             print("Invalid date entered. Please enter a deadline in the future.")
             new_task_deadline = formatted_current_date
+        time.sleep(5)
     else:
         print("Please enter a deadline according to the specified date format [DD.MM.YY].")
         new_task_deadline = formatted_current_date
+        time.sleep(5)
     edit_task_deadline(old_task_deadline, new_task_deadline, Task_holder)
 
     #####################
 
     #EDIT_TASK_URGENCY
+    os.system("clear")
     old_task_urgency = input("Enter old task urgency level [(L)ow / (M)edium / (H)igh]: ")
     new_task_urgency = input("Enter new task urgency level [(L)ow / (M)edium / (H)igh]: ")
     if new_task_urgency.lower() == "l":
