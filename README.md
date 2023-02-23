@@ -30,9 +30,9 @@ Here is what I hope to accomplish with this terminal application:
 - [x] boot up using previous saved tasks from the local `pickle` file
 
 
-### Deadline tracker 
+### Event tracker 
 
-- [ ] deadlines to be taken from the `To-do List`
+- [ ] Events and additional deadlines to be taken from the `To-do List`
 - [ ] calendar that shows the **current date and time** on the default application *home page*
 - [ ] reminders for **deadlines on the current day** for the default application *home page*
 - [ ] notification prompts for *upcoming deadlines* in the next three days-week

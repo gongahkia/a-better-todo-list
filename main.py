@@ -10,51 +10,23 @@ formatted_current_date = f"{temp_date[0]}.{temp_date[1]}.{temp_date[2]}"
 
     #####################
 
-try:
-
-    # RELOAD PAST SAVE
-
-    Task_holder = read_tasks()
-    print("Previous save loaded.")
-
-except:
-    print("Previous save could not be found.")
-    Task_holder = []
-
-while True:
-
-    #EXIT CALL
-    os.system("clear")
-    task_exit = input("[(E)xit?]: ")
-    if task_exit.lower() == "e" or task_exit.lower() == "exit": 
-
-        # SAVE TASKS TO LOCAL FILE
-
-        os.system("clear")
-        save_input = input("[S]ave?: ")
-        if save_input.lower() == "s":
-            write_tasks(Task_holder)
-            os.system("clear")
-            print("Tasks saved")
-            break
-
-    #####################
-
     #ADD_TASK
+
+def add_task_operation(): 
 
     os.system("clear")
     task_name = input("Task name: ")
     if len(task_name) > 25:
         print("Please shorten task name.")
         task_name = task_name[:22] + "..."
-        time.sleep(5)
+        time.sleep(2)
 
     os.system("clear")
     task_description = input("Task description: ")
     if len(task_description) > 25:
         print("Please shorten task description. ")
         task_description = task_description[:22] + "..."
-        time.sleep(5)
+        time.sleep(2)
 
     os.system("clear")
     task_deadline = input("Task deadline [DD.MM.YY]: ")
@@ -66,11 +38,11 @@ while True:
         else:
             print("Invalid date entered. Please enter a deadline in the future.")
             task_deadline = formatted_current_date
-            time.sleep(5)
+            time.sleep(2)
     else:
         print("Please enter a deadline according to the specified date format [DD.MM.YY].")
         task_deadline = formatted_current_date
-        time.sleep(5)
+        time.sleep(2)
             
     os.system("clear")
     task_urgency = input("Task urgency [(L)ow / (M)edium / (H)igh]: ")
@@ -88,7 +60,8 @@ while True:
     #####################
 
     #SEE_TASKS
-    
+
+def see_tasks_operation(): 
     os.system("clear")
     print(see_tasks(Task_holder))
 
@@ -96,6 +69,7 @@ while True:
 
     #COMPLETE_TASKS
 
+def complete_task_operation():
     completed_task = input("Enter name of completed task: ")
     complete_task(completed_task, Task_holder)
 
@@ -103,41 +77,44 @@ while True:
 
     #DELETE_TASKS
 
-    os.system("clear")
+def delete_task_operation():
     deleted_task = input("Enter name of task to be deleted: ")
     complete_task(deleted_task, Task_holder)
 
     #####################
 
     #EDIT_TASK_NAME
-    os.system("clear")
-    old_task_name = input("Enter old task name: ")
+
+def edit_task_name_operation():
+    old_task_name = input("\n\n\nEnter old task name: ")
     new_task_name = input("Enter new task name: ")
     if len(new_task_name) > 25:
         print("Please shorten task name.")
         new_task_name = new_task_name[:22] + "..."
-        time.sleep(5)
+        time.sleep(2)
 
     edit_task_name(old_task_name, new_task_name, Task_holder)
 
     #####################
 
     #EDIT_TASK_DESCRIPTION
-    os.system("clear")
-    old_task_description = input("Enter old task description: ")
+
+def edit_task_description_operation():
+    old_task_description = input("\n\n\nEnter old task description: ")
     new_task_description = input("Enter new task description: ")
     if len(new_task_description) > 25:
         print("Please shorten task description. ")
         new_task_description = new_task_description[:22] + "..."
-        time.sleep(5)
+        time.sleep(2)
 
     edit_task_description(old_task_description, new_task_description, Task_holder)
 
     #####################
 
     #EDIT_TASK_DEADLINE
-    os.system("clear")
-    old_task_deadline = input("Enter old task deadline [DD.MM.YY]: ")    
+
+def edit_task_deadline_operation():
+    old_task_deadline = input("\n\n\nEnter old task deadline [DD.MM.YY]: ")    
     new_task_deadline = input("Enter new task deadline [DD.MM.YY]: ")
     new_date_components = new_task_deadline.split(".")
     if len(new_date_components) == 3:
@@ -147,18 +124,19 @@ while True:
         else:
             print("Invalid date entered. Please enter a deadline in the future.")
             new_task_deadline = formatted_current_date
-        time.sleep(5)
+        time.sleep(2)
     else:
         print("Please enter a deadline according to the specified date format [DD.MM.YY].")
         new_task_deadline = formatted_current_date
-        time.sleep(5)
+        time.sleep(2)
     edit_task_deadline(old_task_deadline, new_task_deadline, Task_holder)
 
     #####################
 
     #EDIT_TASK_URGENCY
-    os.system("clear")
-    old_task_urgency = input("Enter old task urgency level [(L)ow / (M)edium / (H)igh]: ")
+
+def edit_task_urgency_operation():
+    old_task_urgency = input("\n\n\nEnter old task urgency level [(L)ow / (M)edium / (H)igh]: ")
     new_task_urgency = input("Enter new task urgency level [(L)ow / (M)edium / (H)igh]: ")
     if new_task_urgency.lower() == "l":
         new_task_urgency = "Low"
@@ -171,3 +149,103 @@ while True:
     edit_task_urgency(old_task_urgency, new_task_urgency, Task_holder)
 
     #####################
+
+################################
+
+# actual program
+
+print("\n\n\n\n\n|\t\t\tWelcome to Bullet List V1.0\t\t\t|\n   ~For any feedback and pull requests, refer to @gongahkia on Github~\n\n\n\n\n")
+time.sleep(2)
+print("loading...")
+time.sleep(2)
+
+# RELOAD PAST SAVE
+
+try:
+    Task_holder = read_tasks()
+    print("\n\n\nSystem Notif: Previous save loaded.")
+
+except:
+    Task_holder = []
+    print("\n\n\nSystem Notif: Previous save could not be found.")
+
+# MAIN TODO BODY CALL
+
+time.sleep(3)
+
+while True:
+    os.system("clear")
+    user_decision = input("\n\n\n|\t\t\tWhat would you like to do?\t\t\t|\n\n\t\t\t[A]dd task\n\t\t\t[C]omplete task\n\t\t\t[D]elete task\n\t\t\t[E]dit task\n\t\t\t[V]iew tasks\n\t\t\tE[X]it\n\nI want to... ")
+
+    if user_decision.lower() == "a":
+        see_tasks_operation()
+        done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+        add_task_operation()
+        see_tasks_operation()
+        done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+
+    elif user_decision.lower() == "c":
+        see_tasks_operation()
+        complete_task_operation()
+        see_tasks_operation()
+        print("\n\n\nSystem Notif: Your task has been checked off.\n\n\n")
+        done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+
+    elif user_decision.lower() == "d":
+        see_tasks_operation()
+        delete_task_operation()
+        see_tasks_operation()
+        print("\n\n\nSystem Notif: The task has been deleted.\n\n\n")
+        done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+
+    elif user_decision.lower() == "e":
+        see_tasks_operation()
+        edit_which_component = input("\n\n\n\n|\t\t\tWhat would you like to edit?\t\t\t|\n\n\t\t\tTask [N]ame\n\t\t\tTask [D]escription\n\t\t\tTask D[E]adline\n\t\t\tTask [U]rgency\n\nI want to edit... ")
+        if edit_which_component == "n":
+            os.system("clear")
+            see_tasks_operation()
+            edit_task_name_operation()
+            see_tasks_operation()
+            done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+        elif edit_which_component == "d":
+            os.system("clear")
+            see_tasks_operation()
+            edit_task_description_operation()
+            see_tasks_operation()
+            done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+        elif edit_which_component == "e":
+            os.system("clear")
+            see_tasks_operation()
+            edit_task_deadline_operation()
+            see_tasks_operation()
+            done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+        elif edit_which_component == "u":
+            os.system("clear")
+            see_tasks_operation()
+            edit_task_urgency_operation() 
+            see_tasks_operation()
+            done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+            # (1) edit the edit_task_urgency function to take in old_task_urgency parameter as l/m/h instead of having to type out the entire word
+
+    elif user_decision.lower() == "v":
+        see_tasks_operation()
+        done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+    
+    #EXIT CALL
+
+    elif user_decision.lower() == "x" or user_decision.lower() == "exit":
+        break
+os.system("clear")
+save_input = input("[S]ave?: ")
+if save_input.lower() == "s":
+
+        # SAVE TASKS TO LOCAL FILE
+
+    write_tasks(Task_holder)
+    os.system("clear")
+    print("System Notif: Tasks saved")
+
+
+
+
+
