@@ -5,7 +5,6 @@ current_date = date.today()
 temp_date = (current_date.strftime("%d.%m.%y")).split(".")
 temp_date[1] = abs(int(temp_date[1]))
 formatted_current_date = f"{temp_date[0]}.{temp_date[1]}.{temp_date[2]}"
-print(formatted_current_date)
 
 try:
 
