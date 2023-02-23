@@ -1,13 +1,37 @@
 from todo import *
+from datetime import date 
 
-Task_holder = []
+current_date = date.today()
+temp_date = (current_date.strftime("%d.%m.%y")).split(".")
+temp_date[1] = abs(int(temp_date[1]))
+formatted_current_date = f"{temp_date[0]}.{temp_date[1]}.{temp_date[2]}"
+print(formatted_current_date)
+
+try:
+
+    # RELOAD PAST SAVE
+
+    Task_holder = read_tasks()
+    print("Previous save loaded.")
+
+except:
+    print("Previous save could not be found.")
+    Task_holder = []
 
 while True:
 
     #EXIT CALL
+
     task_exit = input("[(E)xit?]: ")
-    if task_exit.lower() == "e" or task_exit.lower() == "exit":
-        break
+    if task_exit.lower() == "e" or task_exit.lower() == "exit": 
+
+        # SAVE TASKS TO LOCAL FILE
+
+        save_input = input("[S]ave?: ")
+        if save_input.lower() == "s":
+            write_tasks(Task_holder)
+            print("Tasks saved")
+            break
 
     #####################
 
@@ -31,12 +55,10 @@ while True:
             pass
         else:
             print("Invalid date entered. Please enter a deadline in the future.")
-            task_deadline = "22.2.23"
-            # (3) to update this task_deadline variable with the value of the current day + 1, when updating the calender
+            task_deadline = formatted_current_date
     else:
         print("Please enter a deadline according to the specified date format [DD.MM.YY].")
-        task_deadline = "22.2.23"
-        # (4) to update this task_deadline variable with the value of the current day + 1, when updating the calender
+        task_deadline = formatted_current_date
             
     task_urgency = input("Task urgency [(L)ow / (M)edium / (H)igh]: ")
     if task_urgency.lower() == "l":
@@ -48,31 +70,34 @@ while True:
     else:
         task_urgency = "Low"
 
-    add_task(task_name, task_description, task_deadline, task_urgency, Task_holder) # this function is tested to be working
+    add_task(task_name, task_description, task_deadline, task_urgency, Task_holder)
 
     #####################
 
     #SEE_TASKS
-    print(see_tasks(Task_holder)) # this function is tested to be working
+
+    print(see_tasks(Task_holder))
 
     #####################
 
     #COMPLETE_TASKS
 
     completed_task = input("Enter name of completed task: ")
+
     # (5) when working on UI with main page and shifting arrow, change this input to allow for auto-checking of which task is being pointed at.
     # (6) ensure point 5 is up and running so that multiple tasks with same task name can be created without conflict
     
-    complete_task(completed_task, Task_holder) # this function is tested to be working
+    complete_task(completed_task, Task_holder)
 
     #####################
 
     #DELETE_TASKS
 
     deleted_task = input("Enter name of task to be deleted: ")
+
     # (7) follow up on points 5 and 6 for this operation as well
 
-    complete_task(deleted_task, Task_holder) # this function is tested to be working
+    complete_task(deleted_task, Task_holder)
 
     #####################
 
@@ -82,8 +107,11 @@ while True:
     if len(new_task_name) > 25:
         print("Please shorten task name.")
         new_task_name = new_task_name[:22] + "..."
+
     # (8) possible tweaks: save full task name input in list and only SHOW truncated "..." name for the visualisation
-    edit_task_name(old_task_name, new_task_name, Task_holder) # this function is tested to be working
+
+    edit_task_name(old_task_name, new_task_name, Task_holder)
+
     # (9) once the main menu is up, allow for selection of existing task name to be done via shifting arrow, and only typing done should be for new task name
 
     #####################
@@ -94,8 +122,11 @@ while True:
     if len(new_task_description) > 25:
         print("Please shorten task description. ")
         new_task_description = new_task_description[:22] + "..."
+
     # (10) possible tweaks: save full task description input in list and only SHOW truncated "..." description for the visualisation
-    edit_task_description(old_task_description, new_task_description, Task_holder) # this function is tested to be working
+
+    edit_task_description(old_task_description, new_task_description, Task_holder)
+
     # (11) once the main menu is up, allow for selection of existing task description to be done via shifting arrow, and only typing done should be for new task description
 
     #####################
@@ -110,13 +141,12 @@ while True:
             pass
         else:
             print("Invalid date entered. Please enter a deadline in the future.")
-            new_task_deadline = "22.2.23"
-            # (12) to update this task_deadline variable with the value of the current day + 1, when updating the calender
+            new_task_deadline = formatted_current_date
     else:
         print("Please enter a deadline according to the specified date format [DD.MM.YY].")
-        new_task_deadline = "22.2.23"
-        # (13) to update this task_deadline variable with the value of the current day + 1, when updating the calender
-    edit_task_deadline(old_task_deadline, new_task_deadline, Task_holder) # this function is tested to be working
+        new_task_deadline = formatted_current_date
+    edit_task_deadline(old_task_deadline, new_task_deadline, Task_holder)
+
     # (14) once the main menu is up, allow for selection of existing task deadline to be done via shifting arrow, and only typing done should be for new task deadline
 
     #####################
@@ -132,9 +162,8 @@ while True:
         new_task_urgency = "High"
     else:
         new_task_urgency = "Low"
-    edit_task_urgency(old_task_urgency, new_task_urgency, Task_holder) # this function is tested to be working
+    edit_task_urgency(old_task_urgency, new_task_urgency, Task_holder)
+
     # (15) once the main menu is up, allow for selection of existing task urgency to be done via shifting arrow, and only typing done should be for new task urgency
 
     #####################
-
-# (16) integrate the write and read tasks function to this main.py file
