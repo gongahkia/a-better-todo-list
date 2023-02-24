@@ -1,5 +1,6 @@
 from todo import *
 from datetime import date 
+from calendar import calendar
 import os
 import time
 
@@ -154,93 +155,129 @@ def edit_task_urgency_operation():
 
 # actual program
 
-print("\n\n\n\n\n|\t\t\tWelcome to Bullet List V1.0\t\t\t|\n   ~For any feedback and pull requests, refer to @gongahkia on Github~\n\n\n\n\n")
-time.sleep(2)
-print("loading...")
-time.sleep(2)
+while True:
+    os.system("clear")
+    user_input = input("\n\n\n|\t\t\t[L]ist\t\t\t\t\t|\n|\t\t\t[C]alender\t\t\t\t|\n|\t\t\t[P]roject manager\t\t\t|\n|\t\t\tE[X]it the program\t\t\t|\n\nI want to... ")
+
+    if user_input.lower() == "l":
+        os.system("clear")
+        print("\n\n\nloading...")
+        time.sleep(2)
+        os.system("clear")
+# TODO LIST
+        print("\n\n\n\n\n|\t\t\tWelcome to Bullet List V1.0\t\t\t|\n   ~For any feedback and pull requests, refer to @gongahkia on Github~\n\n\n\n\n")
+        time.sleep(2)
+        print("loading...")
+        time.sleep(2)
 
 # RELOAD PAST SAVE
 
-try:
-    Task_holder = read_tasks()
-    print("\n\n\nSystem Notif: Previous save loaded.")
+        try:
+            Task_holder = read_tasks()
+            print("\n\n\nSystem Notif: Previous save loaded.")
 
-except:
-    Task_holder = []
-    print("\n\n\nSystem Notif: Previous save could not be found.")
+        except:
+            Task_holder = []
+            print("\n\n\nSystem Notif: Previous save could not be found.")
 
 # MAIN TODO BODY CALL
 
-time.sleep(3)
+        time.sleep(2)
 
-while True:
-    os.system("clear")
-    user_decision = input("\n\n\n|\t\t\tWhat would you like to do?\t\t\t|\n\n\t\t\t[A]dd task\n\t\t\t[C]omplete task\n\t\t\t[D]elete task\n\t\t\t[E]dit task\n\t\t\t[V]iew tasks\n\t\t\tE[X]it\n\nI want to... ")
-
-    if user_decision.lower() == "a":
-        see_tasks_operation()
-        done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
-        add_task_operation()
-        see_tasks_operation()
-        done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
-
-    elif user_decision.lower() == "c":
-        see_tasks_operation()
-        complete_task_operation()
-        see_tasks_operation()
-        print("\n\n\nSystem Notif: Your task has been checked off.\n\n\n")
-        done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
-
-    elif user_decision.lower() == "d":
-        see_tasks_operation()
-        delete_task_operation()
-        see_tasks_operation()
-        print("\n\n\nSystem Notif: The task has been deleted.\n\n\n")
-        done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
-
-    elif user_decision.lower() == "e":
-        see_tasks_operation()
-        edit_which_component = input("\n\n\n\n|\t\t\tWhat would you like to edit?\t\t\t|\n\n\t\t\tTask [N]ame\n\t\t\tTask [D]escription\n\t\t\tTask D[E]adline\n\t\t\tTask [U]rgency\n\nI want to edit... ")
-        if edit_which_component == "n":
+        while True:
             os.system("clear")
-            see_tasks_operation()
-            edit_task_name_operation()
-            see_tasks_operation()
-            done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
-        elif edit_which_component == "d":
-            os.system("clear")
-            see_tasks_operation()
-            edit_task_description_operation()
-            see_tasks_operation()
-            done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
-        elif edit_which_component == "e":
-            os.system("clear")
-            see_tasks_operation()
-            edit_task_deadline_operation()
-            see_tasks_operation()
-            done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
-        elif edit_which_component == "u":
-            os.system("clear")
-            see_tasks_operation()
-            edit_task_urgency_operation() 
-            see_tasks_operation()
-            done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
-            # (1) edit the edit_task_urgency function to take in old_task_urgency parameter as l/m/h instead of having to type out the entire word
+            user_decision = input("\n\n\n|\t\t\tWhat would you like to do?\t\t\t|\n\n\t\t\t[A]dd task\n\t\t\t[C]omplete task\n\t\t\t[D]elete task\n\t\t\t[E]dit task\n\t\t\t[V]iew tasks\n\t\t\tE[X]it\n\nI want to... ")
 
-    elif user_decision.lower() == "v":
-        see_tasks_operation()
-        done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
-    
-    #EXIT CALL
+            if user_decision.lower() == "a":
+                see_tasks_operation()
+                done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+                add_task_operation()
+                see_tasks_operation()
+                done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
 
-    elif user_decision.lower() == "x" or user_decision.lower() == "exit":
-        break
-os.system("clear")
-save_input = input("[S]ave?: ")
-if save_input.lower() == "s":
+            elif user_decision.lower() == "c":
+                see_tasks_operation()
+                complete_task_operation()
+                see_tasks_operation()
+                print("\n\n\nSystem Notif: Your task has been checked off.\n\n\n")
+                done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+
+            elif user_decision.lower() == "d":
+                see_tasks_operation()
+                delete_task_operation()
+                see_tasks_operation()
+                print("\n\n\nSystem Notif: The task has been deleted.\n\n\n")
+                done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+
+            elif user_decision.lower() == "e":
+                see_tasks_operation()
+                edit_which_component = input("\n\n\n\n|\t\t\tWhat would you like to edit?\t\t\t|\n\n\t\t\tTask [N]ame\n\t\t\tTask [D]escription\n\t\t\tTask D[E]adline\n\t\t\tTask [U]rgency\n\nI want to edit... ")
+                if edit_which_component == "n":
+                    os.system("clear")
+                    see_tasks_operation()
+                    edit_task_name_operation()
+                    see_tasks_operation()
+                    done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+                elif edit_which_component == "d":
+                    os.system("clear")
+                    see_tasks_operation()
+                    edit_task_description_operation()
+                    see_tasks_operation()
+                    done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+                elif edit_which_component == "e":
+                    os.system("clear")
+                    see_tasks_operation()
+                    edit_task_deadline_operation()
+                    see_tasks_operation()
+                    done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+                elif edit_which_component == "u":
+                    os.system("clear")
+                    see_tasks_operation()
+                    edit_task_urgency_operation() 
+                    see_tasks_operation()
+                    done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+                    # (1) edit the edit_task_urgency function to take in old_task_urgency parameter as l/m/h instead of having to type out the entire word
+
+            elif user_decision.lower() == "v":
+                see_tasks_operation()
+                done_viewing = input("\n\n\n|\t\t\tWhen done viewing, press [Enter]\t\t\t|")
+            
+            #EXIT CALL
+
+            elif user_decision.lower() == "x" or user_decision.lower() == "exit":
+                break
+            
+        os.system("clear")
+        save_input = input("[S]ave?: ")
+        if save_input.lower() == "s":
 
         # SAVE TASKS TO LOCAL FILE
 
-    write_tasks(Task_holder)
-    os.system("clear")
-    print("System Notif: Tasks saved")
+            write_tasks(Task_holder)
+            os.system("clear")
+            print("System Notif: Tasks saved")
+
+    elif user_input.lower() == "c":
+        os.system("clear")
+        print("\n\n\nloading...")
+        time.sleep(2)
+        os.system("clear")
+
+        # CALENDAR FUNCTION
+        calendar()
+                    
+    elif user_input.lower() == "p":
+        os.system("clear")
+        print("\n\n\nloading...")
+        time.sleep(2)
+        os.system("clear")
+        # (2) move the project manager function (imported from another file) here once its done, style it the same way as the calendar function
+
+    elif user_input.lower() == "x":
+        os.system("clear")
+        print("\n\n\nExiting...")
+        time.sleep(2)
+        os.system("clear")
+        print("Thanks for using this program.\nSee you again soon!")
+        break
+

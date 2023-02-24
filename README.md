@@ -32,10 +32,10 @@ Here is what I hope to accomplish with this terminal application:
 
 ### Event tracker 
 
-- [ ] Events and additional deadlines to be taken from the `To-do List`
-- [ ] calendar that shows the **current date and time** on the default application *home page*
-- [ ] reminders for **deadlines on the current day** for the default application *home page*
-- [ ] notification prompts for *upcoming deadlines* in the next three days-week
+- [x] Events and additional deadlines to be taken from the `To-do List`
+- [x] calendar that shows the **current date and time** on the default application *home page*
+- [x] reminders for **deadlines on the current day** for the default application *home page*
+- [x] notification prompts for *upcoming deadlines* in upcoming weeks in the month
 - [ ] calendar view (weekly) that shows all the deadlines and their respective times for the current week
 - [ ] calendar view (monthly) that shows all the deadline and their respective times for the current month
 
