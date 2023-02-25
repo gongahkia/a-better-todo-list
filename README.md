@@ -60,6 +60,6 @@ Here is what I hope to accomplish with this terminal application:
 ----------
 
 Done with this project for now. Thanks lads.  
-> For those interested in testing this out, clone the entire repo and run main.py with Python3 or newer. 💀  
+> For those interested in testing this out, clone the entire repo and run `main.py` with Python3 or newer. 💀  
 
 ~Gong
